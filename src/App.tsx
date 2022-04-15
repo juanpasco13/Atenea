@@ -1,58 +1,63 @@
-import React from 'react';
 import './App.css';
 import ListadoPeliculas from './Peliculas/listadoPeliculas';
-import { pelicula } from './Peliculas/pelicula.model';
-import PeliculaIndividual from './Peliculas/peliculaIndividual';
+import {landingPageDTO} from './Peliculas/pelicula.model.d';
+import { useEffect, useState } from 'react';
+
 
 function App() {
+const [peliculas,setPeliculas]=useState<landingPageDTO>({})
 
-  const peliculasCartelera:pelicula[]=[
-  {
-    id:1,
-    titulo:'La noche',
-    poster:'https://www.xtrafondos.com/descargar.php?id=5846&resolucion=2560x1440'
-  
-  },
-  {
-    id:2,
-    titulo:'Los Carros',
-    poster:'https://fondosmil.com/fondo/21959.jpg'
-  
-  },
-  {
-    id:3,
-    titulo:'Las Motos',
-    poster:'https://www.xtrafondos.com/descargar.php?id=4464&resolucion=1920x1080'
-  
-  }
-]
+useEffect (() => {
+    const timerId = setTimeout(() => {
+   setPeliculas({
 
-const proximosEstrenos:pelicula[]=[
-  
-    {
-      id:4,
-      titulo:'Los Perros',
-      poster:'https://www.xtrafondos.com/descargar.php?id=5846&resolucion=2560x1440'
-    
-    },
-    {
-      id:5,
-      titulo:'Los Gatos',
-      poster:'https://fondosmil.com/fondo/21959.jpg'
-    
-    }
-  ]
+        EnCartelera:[
+          {
+            id:1,
+            titulo:'La noche',
+            poster:'https://ichef.bbci.co.uk/news/640/cpsprodpb/FED1/production/_100933256_gettyimages-165964685.jpg'
+          },
+          {
+            id:2,
+            titulo:'El dia',
+            poster:'https://elversiculodeldia.com/wp-content/uploads/2016/01/manana.jpg'
+          },
+          {
+            id:3,
+            titulo:'El Crepusculo',
+            poster:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Redskyatnight.jpg/220px-Redskyatnight.jpg'
+          }
+        ],
 
-
+        ProximosEstrenos:[
+          {
+            id:4,
+            titulo:'Los carros',
+            poster:'https://www.elcarrocolombiano.com/wp-content/uploads/2019/09/20190904-TOYOTA-COROLLA-2020-HIBRIDO-COLOMBIA-PRECIOS-CARACTERISTICAS-VERSIONES-02.jpg'
+          },
+          {
+            id:5,
+            titulo:'Las Motos',
+            poster:'https://motos.honda.com.ec/uploads/galeria/Colores_CB-160F_BLANCA.jpg'
+          },
+        ]
+      })
+    },1500);
+  return ()=> clearTimeout(timerId); 
+})
   return(
-    <>
-     <h3>Peliculas en Carteleras</h3> 
-     <ListadoPeliculas pelicula={peliculasCartelera} ></ListadoPeliculas>
+    <div  className='container'>
+      <div >
+        <h3>Peliculas en Cartelera 1</h3>
+      <ListadoPeliculas peliculas={peliculas.EnCartelera}></ListadoPeliculas>
+      </div>
 
-     <h3>Peliculas en Cartelera</h3> 
-     <ListadoPeliculas pelicula={proximosEstrenos} ></ListadoPeliculas>
-
-    </>
+      <div>
+        <h3>Las Cositas</h3>
+      <ListadoPeliculas peliculas={peliculas.ProximosEstrenos}></ListadoPeliculas>
+      </div>
+    </div>
+  
   );
 }
 
