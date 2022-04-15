@@ -46,7 +46,7 @@ const proximosEstrenos:pelicula[]=[
 
   return(
     <>
-     <h3>Peliculas en Cartelera</h3> 
+     <h3>Peliculas en Carteleras</h3> 
      <ListadoPeliculas pelicula={peliculasCartelera} ></ListadoPeliculas>
 
      <h3>Peliculas en Cartelera</h3> 
