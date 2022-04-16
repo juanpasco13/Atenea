@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## El proyecto debe de tener instalado NODE.JS y debe tener intalado Boostrap en la version 4.6 y posterior tener
+## Instalado router-dom de React 
+## E instalar los tipos de router-dom
+
+Boostrap -> npm i react-bootstrap@4.6
+router-dom -> npm i react-router-dom@5.2
+Tipos router-dom -> npm i --save-dev @types/react-router-dom
+
+
 ## Available Scripts
 
 In the project directory, you can run:
